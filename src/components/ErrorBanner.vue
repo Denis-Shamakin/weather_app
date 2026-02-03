@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { type AppError, AppErrorType } from '@/types/weather';
-import { MapPin, Globe, Search, WifiOff, AlertTriangle, XCircle, RefreshCw } from 'lucide-vue-next';
+import { MapPinOff, Globe, Search, WifiOff, AlertTriangle, XCircle, RefreshCw } from 'lucide-vue-next';
 
 const props = defineProps<{
   error: AppError;
@@ -28,7 +28,7 @@ defineEmits<{
 const errorIcon = computed(() => {
   switch (props.error.type) {
     case AppErrorType.GEOLOCATION_DENIED:
-      return MapPin;
+      return MapPinOff;
     case AppErrorType.GEOLOCATION_UNAVAILABLE:
     case AppErrorType.GEOLOCATION_TIMEOUT:
       return Globe;
