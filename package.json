@@ -1,0 +1,43 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Weather App — Vue 3 + TypeScript + Webpack 5",
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "types": "tsc --noEmit --project ./tsconfig.json",
+    "lint": "eslint src --ext .ts,.vue,.js",
+    "prettify": "prettier {src/**/*,*}.{ts,vue,js,json,yml,scss} --cache --write",
+    "serve": "http-server dist"
+  },
+  "dependencies": {
+    "@vue/runtime-dom": "^3.3.8",
+    "axios": "^1.6.0",
+    "lucide-vue-next": "^0.563.0",
+    "vue": "^3.3.8"
+  },
+  "devDependencies": {
+    "@types/webpack-env": "^1.18.0",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
+    "@vue/compiler-sfc": "^3.3.8",
+    "css-loader": "^6.8.1",
+    "dotenv-webpack": "^8.0.0",
+    "eslint": "^9.39.2",
+    "eslint-plugin-vue": "^10.7.0",
+    "html-webpack-plugin": "^5.5.3",
+    "http-server": "^14.1.1",
+    "prettier": "^3.8.1",
+    "sass": "^1.69.0",
+    "sass-loader": "^13.3.3",
+    "style-loader": "^3.1.1",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
+    "vue-eslint-parser": "^10.2.0",
+    "vue-loader": "^17.3.0",
+    "vue-style-loader": "^4.1.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.0"
+  }
+}
