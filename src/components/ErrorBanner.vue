@@ -1,10 +1,10 @@
 <template>
   <div class="error-banner">
-    <div class="error-banner__icon">{{ errorIcon }}</div>
+    <div class="error-banner__icon"><component :is="errorIcon" :size="40" /></div>
     <p class="error-banner__message">{{ error.message }}</p>
     <div v-if="showRetry" class="error-banner__actions">
       <button class="error-banner__btn" @click="$emit('retry')">
-        <span class="error-banner__btn-icon">↻</span>
+        <RefreshCw class="error-banner__btn-icon" :size="18" />
         Попробовать снова
       </button>
     </div>
@@ -14,6 +14,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { type AppError, AppErrorType } from '@/types/weather';
+import { MapPin, Globe, Search, WifiOff, AlertTriangle, XCircle, RefreshCw } from 'lucide-vue-next';
 
 const props = defineProps<{
   error: AppError;
@@ -24,21 +25,21 @@ defineEmits<{
 }>();
 
 // Иконка по типу ошибки
-const errorIcon = computed<string>(() => {
+const errorIcon = computed(() => {
   switch (props.error.type) {
     case AppErrorType.GEOLOCATION_DENIED:
-      return '📍';
+      return MapPin;
     case AppErrorType.GEOLOCATION_UNAVAILABLE:
     case AppErrorType.GEOLOCATION_TIMEOUT:
-      return '🌐';
+      return Globe;
     case AppErrorType.CITY_NOT_FOUND:
-      return '🔍';
+      return Search;
     case AppErrorType.NETWORK_ERROR:
-      return '📶';
+      return WifiOff;
     case AppErrorType.API_ERROR:
-      return '⚠️';
+      return AlertTriangle;
     default:
-      return '❌';
+      return XCircle;
   }
 });
 
